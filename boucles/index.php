@@ -184,6 +184,23 @@ var_dump(reverseNumber(getPositiveNumber()));
 
 //*
 $secretNumber = random_int(0, 1000);
-var_dump(($secretNumber));
+//var_dump(($secretNumber));
+
+function findSecretNumber($number) {
+    $userNumber = 0;
+    $tries = 20;
+    while ($userNumber != $number && $tries != 0) {
+        $userNumber = getPositiveNumber();
+        $tries--;
+        if ($userNumber > $number) {
+            echo 'trop grand. Il reste '.$tries.' essais. ';
+        } else if ($userNumber < $number) {
+            echo 'trop petit. Il reste '.$tries.' essais. ';
+        } else {
+            echo 'Gagné ! nombre d\'essais : '.(20-$tries);
+        }
+    }
+}
+findSecretNumber($secretNumber);
 
 //*/
