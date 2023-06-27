@@ -29,7 +29,7 @@ function findStageOfAge($number): void {
 echo findStageOfAge(getAge());
 // */
 
-/*
+//*
 function wrongNumber($number): int {
     while ($number < 50 || $number > 100) {
         if ($number < 50) {
@@ -45,7 +45,7 @@ function getUserNumber(): int {
     $userNumber = (int)readline('Veuillez saisir un nombre entre 50 et 100 : ');
     return $userNumber;
 }
-/*
+//*
 echo 'vous avez saisi ' . wrongNumber(getUserNumber());
 // */
 
@@ -59,7 +59,7 @@ function getPositiveNumber(): int {
     return $userNumber;
 }
 //*/
-/*
+//*
 $userNumber = getPositiveNumber();
 $userNumberTwo = getPositiveNumber();
 function getModulo($dividende, $diviseur): int {
@@ -69,11 +69,11 @@ function getModulo($dividende, $diviseur): int {
     return $dividende;
 };
 $resultat = getModulo($userNumber, $userNumberTwo);
-/*
+//*
 echo 'le reste de la division '.$userNumber.'/'.$userNumberTwo.' est '.$resultat;
 //*/
 
-/*
+//*
 function write(): String {
     return "Bonjour \n";
 };
@@ -86,7 +86,7 @@ function showFifty(): void {
 echo showFifty();
 //*/
 
-/*
+//*
 function writeArray(): array {
     $array = [];
     for ($i = 0; $i < 10; $i++) {
@@ -96,25 +96,24 @@ function writeArray(): array {
 };
 //var_dump(writeArray());
 //*/
-/*
-function sumArray(): int {
-    $array = writeArray();
+//*
+function sumArray(array $array): int {
     $sum = 0;
     for($i = 0; $i < count($array); $i++) {
         $sum = $sum + $array[$i];
     }
     return $sum;
 };
-echo 'la somme des éléments du tableau est '.sumArray();
+echo 'la somme des éléments du tableau est '.sumArray(writeArray());
 //*/
 
-/*
+//*
 $myArray = [5, 3, -5, 7, 10, 5, 4, 6, 8, 1];
 for ($i = 0; $i < count($myArray); $i++) {
     echo $myArray[$i].', ';
 }
 //*/
-//*
+/*
 function minimumValue($array): int {
     $min = $array[0];
     for($i = 0; $i < count($array); $i++) {
@@ -127,18 +126,6 @@ function minimumValue($array): int {
 };
 //echo 'la plus petite valeur du tableau est '.minimumValue($myArray);
 //*/
-/*
-function minimumValue($array): int {
-    for($i = 0; $i < count($array); $i++) {
-        if($array[$i] < $array[$i+1]) {
-            return $array[$i];
-        }
-    }
-    return $array[$i];
-};
-echo 'la plus petite valeur du tableau est '.minimumValue($myArray);
-//*/
-
 //*
 //function minimumAbsoluteValue(): int {
 function transformArray($array): array {
@@ -154,7 +141,7 @@ function transformArray($array): array {
 //*/
 //var_dump(minimumValue(transformArray($myArray)));
 
-/*
+//*
 function sumIntegers($number): int {
     $sum = 0;
     for($i = 0; $i <= $number; $i++) {
@@ -166,7 +153,7 @@ var_dump(sumIntegers(getPositiveNumber()));
 //*/
 
 
-/*
+//*
 function reverseNumber($number): int {
     var_dump($number % 10);
     $reverse = 0;
