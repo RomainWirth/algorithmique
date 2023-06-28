@@ -263,16 +263,16 @@ function divided($number) {
         echo 'le nombre '.$number.' n\'est pas divisible par 7 et par 13';
     }
 }
-//*
+/*
 divided(getNumber());
 //*/
 
 //EXERCICE 4
 //*
-function averageGrade(): int {
-    $pupilGrade = (int)readline('Veuillez saisir une note comprise entre 0 et 20 : ');
+function averageGrade(): float {
+    $pupilGrade = (float)readline('Veuillez saisir une note comprise entre 0 et 20 : ');
     while ($pupilGrade < 0 || $pupilGrade > 20 ) {
-        $pupilGrade = (int)readline('Erreur, veuillez saisir une note comprise entre 0 et 20 : ');
+        $pupilGrade = (float)readline('Erreur, veuillez saisir une note comprise entre 0 et 20 : ');
     }
     return $pupilGrade;
 }
@@ -299,3 +299,199 @@ mention(averageGrade());
 //*/
 
 //EXERCICE 5
+//*
+function bisextile($year): bool {
+    $modulo400 = $year%400;
+    $modulo4 = $year%4;
+    $modulo100 = $year%100;
+    if($modulo400 == 0 || ($modulo4 == 0 && $modulo100 != 0)) {
+        $isBisextile = true;
+    } else {
+        $isBisextile = false;
+    }
+    return $isBisextile;
+}
+
+function resultYear($year) {
+    if(bisextile($year)) {
+        echo 'L\'année '.$year.' est une année bisextile ; ';
+    } else {
+        echo 'L\'année '.$year.' n\'est pas une année bisextile ; ';
+    }
+}
+/*
+resultYear(getNumber());
+//*/
+
+//EXERCICE 6
+//*
+function month($year): string {
+    $userYear = bisextile($year);
+    $userMonth = (string)readline('Veuillez saisir un mois de l\'année : ');
+    switch ($userMonth) {
+        case 'janvier':
+        case 'mars':
+        case 'mai':
+        case 'juillet':
+        case 'aout':
+        case 'octobre':
+        case 'décembre':
+            echo "31 jour";
+            break;
+        case 'avril':
+        case 'juin':
+        case 'septembre':
+        case 'novembre':
+            echo "30 jours";
+            break;
+        case 'février':
+            if($userYear == true) {
+                echo "29 jours";
+            } elseif ($userYear == false) {
+                echo "28 jours";
+            }
+            break;
+    }
+    return $userMonth;
+}
+/*
+month(getNumber());
+//*/
+
+
+//EXERCICE 7
+//*
+function letter(): string {
+    $userletter = (string)readline('Veuillez saisir une lettre : ');
+//    var_dump(strlen($userletter));
+    if(strlen($userletter) > 1) {
+        $userletter = (string)readline('Erreur, veuillez saisir une une seule lettre : ');
+    }
+    return $userletter;
+}
+/*
+letter();
+//*/
+
+//*
+function isVoyelle($letter): bool {
+    $isVoyelle = false;
+    switch ($letter) {
+        case 'a':
+        case 'e':
+        case 'i':
+        case 'o':
+        case 'u':
+        case 'y':
+            $isVoyelle = true;
+            break;
+    }
+    if($isVoyelle) {
+        echo 'La lettre '.$letter.' est une voyelle. ; ';
+    } else {
+        echo 'La lettre '.$letter.' est une consonne. ; ';
+    }
+    return $isVoyelle;
+}
+/*
+var_dump(isVoyelle(letter()));
+//*/
+
+// EXERCICE 8
+//*
+function calculatePromotion($number, $promotion) {
+    $calul = $number - ($number * ($promotion/100));
+    return $calul;
+}
+/*
+echo 'Vous devez payer '.calculatePromotion(getNumber(), 1).' €';
+//*/
+
+// EXERCICE 9
+//*
+function whichPromotion($number) {
+    if ($number >= 200 && $number < 500) {
+        $promotion = 1;
+        $calcul = calculatePromotion($number, $promotion);
+        echo 'Vous devez payer '.$calcul.' €';
+    } elseif ($number >= 500 && $number < 700) {
+        $promotion = 2;
+        $calcul = calculatePromotion($number, $promotion);
+        echo 'Vous devez payer '.$calcul.' €';
+    } elseif ($number >= 700) {
+        $promotion = 3;
+        $calcul = calculatePromotion($number, $promotion);
+        echo 'Vous devez payer '.$calcul.' €';
+    } else {
+        echo $number;
+    }
+}
+/*
+whichPromotion(getNumber());
+//*/
+
+// EXERCICE 10
+//*
+function whichPayBack($horsePower, $distance) {
+    if($horsePower <= 3) {
+        if ($distance <= 5000) {
+            $calcul = $distance * 0.502;
+            echo 'Vous serez remboursé de ' . $calcul . ' €';
+        } elseif ($distance > 5000 && $distance <= 20000) {
+            $calcul = $distance * 0.3 + 1007;
+            echo 'Vous serez remboursé de ' . $calcul . ' €';
+        } elseif ($distance > 20000) {
+            $calcul = $distance * 0.35;
+            echo 'Vous serez remboursé de ' . $calcul . ' €';
+        }
+    } elseif($horsePower == 4) {
+        if ($distance <= 5000) {
+            $calcul = $distance * 0.575;
+            echo 'Vous serez remboursé de ' . $calcul . ' €';
+        } elseif ($distance > 5000 && $distance <= 20000) {
+            $calcul = $distance * 0.323 + 1262;
+            echo 'Vous serez remboursé de ' . $calcul . ' €';
+        } elseif ($distance > 20000) {
+            $calcul = $distance * 0.387;
+            echo 'Vous serez remboursé de ' . $calcul . ' €';
+        }
+    } elseif ($horsePower == 5) {
+
+
+        if ($distance <= 5000) {
+            $calcul = $distance * 0.603;
+            echo 'Vous serez remboursé de ' . $calcul . ' €';
+        } elseif ($distance > 5000 && $distance <= 20000) {
+            $calcul = $distance * 0.339 + 1320;
+            echo 'Vous serez remboursé de ' . $calcul . ' €';
+        } elseif ($distance > 20000) {
+            $calcul = $distance * 0.405;
+            echo 'Vous serez remboursé de ' . $calcul . ' €';
+        }
+    } elseif ($horsePower == 6) {
+        if ($distance <= 5000) {
+            $calcul = $distance * 0.631;
+            echo 'Vous serez remboursé de ' . $calcul . ' €';
+        } elseif ($distance > 5000 && $distance <= 20000) {
+            $calcul = $distance * 0.355 + 1382;
+            echo 'Vous serez remboursé de ' . $calcul . ' €';
+        } elseif ($distance > 20000) {
+            $calcul = $distance * 0.425;
+            echo 'Vous serez remboursé de ' . $calcul . ' €';
+        }
+    } elseif ($horsePower > 7) {
+        if ($distance <= 5000) {
+            $calcul = $distance * 0.661;
+            echo 'Vous serez remboursé de ' . $calcul . ' €';
+        } elseif ($distance > 5000 && $distance <= 20000) {
+            $calcul = $distance * 0.374 + 1435;
+            echo 'Vous serez remboursé de ' . $calcul . ' €';
+        } elseif ($distance > 20000) {
+            $calcul = $distance * 0.446;
+            echo 'Vous serez remboursé de ' . $calcul . ' €';
+        }
+    }
+}
+/*
+whichPayBack(getNumber(), getNumber());
+//*/
